@@ -44,7 +44,7 @@ public class MedicalRecordController {
 		List<MedicalRecord> medicalRecords = new LinkedList<MedicalRecord>();
 		
 		try {
-			medicalRecords= medicalRecordService.getMedicalRecordsFromFile();
+			medicalRecords= medicalRecordService.getAllMedicalRecords();
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -54,10 +54,10 @@ public class MedicalRecordController {
 		return medicalRecords;
 	}
 
-	@GetMapping("/medicalRecord/{id}")
+/*	@GetMapping("/medicalRecord/{id}")
 	public Optional<MedicalRecord> getOneMedicalRecord(@PathVariable String id) {
 		return medicalRecordService.getOneMedicalRecordById(id);
-	}
+	}*/
 	
 	//----MedicalRecord  getbyFullName  from file json------
 	/*	@GetMapping("/medicalRecord")
