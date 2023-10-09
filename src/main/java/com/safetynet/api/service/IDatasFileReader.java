@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.List;
+import java.util.stream.Stream;
 
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -14,7 +15,7 @@ import javax.json.JsonReader;
 import com.safetynet.api.model.MedicalRecord;
 
 public interface IDatasFileReader<T> {
-	List<T>  readFile()  throws IOException ;
+	List<MedicalRecord>  readFile()  throws IOException ;
 	
 	default JsonArray  readDataJson(String dataNameJson ) throws IOException{
 		String path = "src/main/resources/datasSafetyNetAlerts.json";

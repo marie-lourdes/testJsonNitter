@@ -4,10 +4,13 @@ package com.safetynet.api.service.dataservice;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.safetynet.api.model.MedicalRecord;
+import com.safetynet.api.repository.MedicalRecordRepositoryImpl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +19,8 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @Slf4j
 public class MedicalRecordService {
-
+	@Autowired
+	MedicalRecordRepositoryImpl medicalRecordRepositoryImpl;
     private final List<MedicalRecord> medicalRecords = new ArrayList<>();
 
     public MedicalRecord addMedicalRecord(MedicalRecord medicalRecord){
@@ -51,6 +55,14 @@ public class MedicalRecordService {
         return result;
     }
 
+    public Optional<MedicalRecord> getOneMedicalRecordById(String id) {
+    	  return medicalRecords.stream()
+                  .filter(medicalRecord -> medicalRecord.getId().equals(id))
+                  .findFirst()
+                  .map(existingMedicalRecord -> { 
+                	  return existingMedicalRecord;
+                  } );
+     }
     public List<MedicalRecord> getAllMedicalRecords() {
        // log.debug("Retrieving all medical records");
     	System.out.println("Retrieving all medical records"+medicalRecords);
