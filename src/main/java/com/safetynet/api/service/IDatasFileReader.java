@@ -11,8 +11,10 @@ import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 
+import com.safetynet.api.model.MedicalRecord;
+
 public interface IDatasFileReader<T> {
-	void   readFile()  throws IOException ;
+	List<T>  readFile()  throws IOException ;
 	
 	default JsonArray  readDataJson(String dataNameJson ) throws IOException{
 		String path = "src/main/resources/datasSafetyNetAlerts.json";

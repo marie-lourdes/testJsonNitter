@@ -24,7 +24,7 @@ public class UploadDataFileRunner implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		medicalRecordService.getAllMedicalRecords();
+		//medicalRecordService.getAllMedicalRecords();
 		//use to logging each element of file json 
 		//personService.getPersonsFromFile();
 	

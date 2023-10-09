@@ -21,7 +21,7 @@ public class ReadMedicalRecordDataFromFileImpl implements IDatasFileReader<Medic
 	private final MedicalRecordService medicalRecordService = new MedicalRecordService();
 
 	@Override
-	public void readFile() throws IOException {
+	public List<MedicalRecord>  readFile() throws IOException {
 		listOfMedicalRecords = new LinkedList<MedicalRecord>();
 
 		// get JsonArray of data entity from JsonReader of Interface IDatasFileReader
@@ -56,15 +56,15 @@ public class ReadMedicalRecordDataFromFileImpl implements IDatasFileReader<Medic
 			}
 			medicalRecord.setAllergies(listOfAllergies);
 			
-			medicalRecordService.addMedicalRecord(medicalRecord);
 			
-			//listOfMedicalRecords.add(medicalRecord);
+			
+			listOfMedicalRecords.add(medicalRecord);
 			System.out.println("element of medicalRecords" + elem.asJsonObject());
 
 		}
 		System.out.println("list of medicalRecords" + listOfMedicalRecords);
 
-		//return listOfMedicalRecords;
+		return listOfMedicalRecords;
 		
 
 	}

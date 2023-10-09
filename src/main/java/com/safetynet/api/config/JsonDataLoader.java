@@ -1,23 +1,14 @@
 package com.safetynet.api.config;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.jsoniter.JsonIterator;
-import com.jsoniter.any.Any;
-import com.safetynet.api.model.FireStation;
 import com.safetynet.api.model.MedicalRecord;
-import com.safetynet.api.model.Person;
-
+import com.safetynet.api.service.ReadMedicalRecordDataFromFileImpl;
 import com.safetynet.api.service.dataservice.MedicalRecordService;
 
 
@@ -33,7 +24,8 @@ public class JsonDataLoader implements CommandLineRunner {
   //  private final FireStationService fireStationService;
 
     private final MedicalRecordService medicalRecordService;
-
+    @Autowired
+    private final ReadMedicalRecordDataFromFileImpl readMedicalRecordsFromfile;
     @Autowired
     public JsonDataLoader(
 
@@ -41,15 +33,16 @@ public class JsonDataLoader implements CommandLineRunner {
 
           //  FireStationService fireStationService,
 
-            MedicalRecordService medicalRecordService
+           MedicalRecordService medicalRecordService,
+    		ReadMedicalRecordDataFromFileImpl readMedicalRecordsFromfile
 
     ) {
 
        // this.personService = personService;
 
-      //  this.fireStationService = fireStationService;
-
-        this.medicalRecordService = medicalRecordService;
+       // this.fireStationService = fireStationService;
+    	this.medicalRecordService = medicalRecordService;
+        this.readMedicalRecordsFromfile = readMedicalRecordsFromfile;
 
     }
 
@@ -57,22 +50,26 @@ public class JsonDataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws IOException {
+    	
+    
+     //   String jsonUrl =" https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/DA+Java+EN/P5+/data.json";
 
-        String jsonUrl =" https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/DA+Java+EN/P5+/data.json";
-
-        URL url = new URL(jsonUrl);
-
-
-
-        try (InputStream inputStream = url.openStream()) {
+     //   URL url = new URL(jsonUrl);
 
 
 
-            String jsonContent = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+       try{
+
+    	   List<MedicalRecord> medicalRecords=	readMedicalRecordsFromfile.readFile();
+    	   for(MedicalRecord medicalRecord:medicalRecords) {
+    		   medicalRecordService.addMedicalRecord(medicalRecord);
+    	   }
+
+         //   String jsonContent = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
 
 
 
-            Any data = JsonIterator.deserialize(jsonContent);
+       //     Any data = JsonIterator.deserialize(jsonContent);
 
 
 
@@ -80,25 +77,7 @@ public class JsonDataLoader implements CommandLineRunner {
 
          //   List<Any> fireStationsData = data.get("firestations").asList();
 
-            List<Any> medicalRecordsData = data.get("medicalrecords").asList();
-
-
-
-            Map<String, MedicalRecord> personToMedicalRecordMap = new HashMap<>();
-
-
-
-            for (Any medicalRecordData : medicalRecordsData) {
-
-                MedicalRecord medicalRecord = medicalRecordData.as(MedicalRecord.class);
-
-                String medicalRecordKey = medicalRecord.getFirstName() + medicalRecord.getLastName();
-
-                personToMedicalRecordMap.put(medicalRecordKey, medicalRecord);
-
-                medicalRecordService.addMedicalRecord(medicalRecord);
-
-            }
+            
 
 
 
@@ -138,6 +117,6 @@ public class JsonDataLoader implements CommandLineRunner {
 
         }
 
-    }
+   }
 
 }
