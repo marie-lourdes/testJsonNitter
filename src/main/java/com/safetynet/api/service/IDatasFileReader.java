@@ -12,7 +12,7 @@ import javax.json.JsonObject;
 import javax.json.JsonReader;
 
 public interface IDatasFileReader<T> {
-	List<T>   readFile()  throws IOException ;
+	void   readFile()  throws IOException ;
 	
 	default JsonArray  readDataJson(String dataNameJson ) throws IOException{
 		String path = "src/main/resources/datasSafetyNetAlerts.json";

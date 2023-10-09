@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.safetynet.api.model.Person;
-import com.safetynet.api.service.ReadPersonDataFromFileImpl;
 
-@Component
+
+/*@Component
 public class PersonRepositoryImpl implements IPersonRepository {
 	private List<Person> listOfPersons;
 	private List<Optional<Person>> listOfPersonsFoundByName;
@@ -74,4 +74,4 @@ public class PersonRepositoryImpl implements IPersonRepository {
 		return personFoundById;
 	}
 
-}
+}*/

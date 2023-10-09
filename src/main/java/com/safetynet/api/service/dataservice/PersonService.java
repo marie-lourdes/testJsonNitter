@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.safetynet.api.model.Person;
-import com.safetynet.api.repository.PersonRepositoryImpl;
 
-@Service
+
+/*@Service
 public class PersonService {
 	@Autowired
 	private PersonRepositoryImpl personRepositoryFile;
@@ -21,10 +21,10 @@ public class PersonService {
 	 * personRepository.findAll(); }
 	 */
 
-//--------------------repository avec source de donnéees fichier Json---------	
+/*//--------------------repository avec source de donnéees fichier Json---------	
 	public List<Person> getPersonsFromFile() throws IOException {
 		return (List<Person>) personRepositoryFile.findAll();
-	}
+	}*/
 
 /*	public Optional<Person> getOnePersonById(String id) {
 		Optional<Person> personFoundById = Optional
@@ -33,13 +33,13 @@ public class PersonService {
 		return personFoundById;
 	}*/
 	
-	public Optional<Person> getOnePersonById(String id) {
+/*	public Optional<Person> getOnePersonById(String id) {
 		return personRepositoryFile.findById(id);
 	}
 	
 	public List<Optional<Person>> getOnePersonByFullName(String firstName, String lastName) {
 		return personRepositoryFile.findByFirstNameAndLastName(firstName,  lastName );
-	}
+	}*/
 /*	 
 	public Person savePerson(Person person) {
 		return personRepository.save(person);
@@ -53,4 +53,4 @@ public class PersonService {
 		personRepository.delete(person);
 	}*/
 
-}
+//}

@@ -18,11 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.safetynet.api.UploadDataFileRunner;
 import com.safetynet.api.model.Person;
-import com.safetynet.api.repository.PersonRepositoryImpl;
-import com.safetynet.api.service.ReadPersonDataFromFileImpl;
-import com.safetynet.api.service.dataservice.PersonService;
 
-@RestController
+
+
+/*@RestController
 //@RequestMapping(path = "/api) // This means URL's start with /demo (after Application path)
 public class PersonController {
 
@@ -54,27 +53,23 @@ public class PersonController {
 	}*/
 
 	// -----------------requete a partir du fichier json-------------
-	@GetMapping("/person/")
+/*	@GetMapping("/person/")
 	public @ResponseBody List<Person> getAllPersonsFromFile() throws IOException {
 		persons= readPerson.getListOfPersons();
-	/*	try {
+
 		
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}*/
+		
 
 		return persons;
 	}
 
-	@GetMapping("/person/{id}")
+/*	@GetMapping("/person/{id}")
 	public Optional<Person> getOnePerson(@PathVariable String id) {
 		return personService.getOnePersonById(id);
-	}
+	}*/
 
 //----Person  getbyFullName  from file json------
-	@GetMapping("/person")
+	/*@GetMapping("/person")
 	public List<Optional<Person>> getOnePersonByFullName(@RequestParam String firstName,
 			@RequestParam String lastName) {
 		return personService.getOnePersonByFullName(firstName, lastName);
@@ -87,7 +82,8 @@ public class PersonController {
 		personFoundById.get().setEmail("email@modifié en memoire.com");
 		System.out.println("----------------persons APRES modification en memoire---------------" +personFoundById.get().getEmail());*/
 		//Optional<Person> personUpdated= personRepositoryFile.modify(id);
-		if (id.toString().equals(personFoundById.get().getId().toString())) {
+	
+	/*	if (id.toString().equals(personFoundById.get().getId().toString())) {
 			 personFoundById.get().setAddress(person.getAddress());
 			 personFoundById.get().setZip(person.getZip());
 			 personFoundById.get().setCity(person.getCity()); 
@@ -102,7 +98,7 @@ public class PersonController {
 		System.out.println("list of personUpdated"+persons );
 		//personService.savePerson(personFoundById.get());
 		return ResponseEntity.status(HttpStatus.CREATED).body(personFoundById );
-	}
+	}*/
 	// the id, first and last name cannot be modified
 	/*
 	 * @PutMapping("/person/{id}") public ResponseEntity<Optional<Person>>
@@ -171,4 +167,4 @@ public class PersonController {
 		});
 		return new ResponseEntity<Long>(HttpStatus.NO_CONTENT);
 	}*/
-}
+//}

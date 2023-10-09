@@ -20,16 +20,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.safetynet.api.model.FireStation;
-import com.safetynet.api.service.dataservice.FireStationService;
+
 
 import jakarta.validation.Valid;
 
-@RestController
+/*@RestController
 public class FireStationController {
-	@Autowired
+	/*@Autowired
 	private FireStationService fireStationService;
 	
-	private List<FireStation>	fireStations;
+	private List<FireStation>	fireStations;*/
 /*	@PostMapping("/firestation/")
 	public ResponseEntity<List<FireStation>> createFireStation(@Valid @RequestBody FireStation fireStation) throws IOException {
 		System.out.println(fireStation);
@@ -41,7 +41,7 @@ public class FireStationController {
 	}*/
 
 	// -----------------requete a partir du fichier json-------------
-	@GetMapping("/firestation/")
+	/*@GetMapping("/firestation/")
 	public @ResponseBody List<FireStation> getAllFireStationsFromFile() throws FileNotFoundException {
 				fireStations = new LinkedList<FireStation>();
 
@@ -53,7 +53,7 @@ public class FireStationController {
 			e.printStackTrace();
 		}
 		return fireStations;
-	}
+	}*/
 
 //----firestation get by id BDD------
 	/*@GetMapping("/firestation/{id}")
@@ -62,7 +62,7 @@ public class FireStationController {
 	}*/
 	//----firestation getbyId from file json------
 		
-	@GetMapping("/firestation/{id}")
+	/*@GetMapping("/firestation/{id}")
 	public  List<Optional<FireStation>> getFireStationsById(@PathVariable String id){
 		return fireStationService.getOneFireStationById(id);
 	}
@@ -70,7 +70,7 @@ public class FireStationController {
 	@GetMapping("/firestation")
 	public  List<Optional<FireStation>>  getFireStationsByAddress(@RequestParam String address){
 		return fireStationService.getFireStationsByAddress(address);
-	}
+	}*/
 
 /*
 	@PutMapping("/firestation/{id}")
@@ -180,5 +180,5 @@ public class FireStationController {
 		return new ResponseEntity<Long>(HttpStatus.NO_CONTENT);
 	}*/
 
-}
+//}
 

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 import com.safetynet.api.model.FireStation;
 
-@Component
+/*@Component
 public class ReadFireStationDataFromFileImpl implements IDatasFileReader<FireStation> {
 	private JsonArray datasJsonFireStations;
 	private List<FireStation> listOfFireStations;
@@ -44,4 +44,4 @@ public class ReadFireStationDataFromFileImpl implements IDatasFileReader<FireSta
 		// return datasJsonPersonParsed ;
 	}
 
-}
+}*/

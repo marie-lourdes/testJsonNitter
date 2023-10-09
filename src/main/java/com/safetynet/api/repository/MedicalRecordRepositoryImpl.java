@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import com.safetynet.api.model.MedicalRecord;
 import com.safetynet.api.service.ReadMedicalRecordDataFromFileImpl;
 
-@Component
+/*@Component
 public class MedicalRecordRepositoryImpl implements IMedicalRecordRepository {
 	private List<Optional<MedicalRecord>> listOfMedicalRecordsFoundByName;
 	private Optional<MedicalRecord> medicalRecordFoundByName;
@@ -71,4 +71,4 @@ public class MedicalRecordRepositoryImpl implements IMedicalRecordRepository {
 		System.out.println("medicalRecordFoundById:" + medicalRecordFoundById);
 		return medicalRecordFoundById;
 	}
-}
+}*/

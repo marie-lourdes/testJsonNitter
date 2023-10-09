@@ -8,12 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.safetynet.api.model.FireStation;
-import com.safetynet.api.repository.FireStationRepositoryImpl;
+
 
 
 import jakarta.validation.Valid;
 
-@Service
+/*@Service
 public class FireStationService {
 
 
@@ -31,14 +31,14 @@ public class FireStationService {
 						" an error has occured,this firestation " + id + " doesn't exist, try again ")));
 		return fireStationFoundById;
 	}*/
-public List<Optional<FireStation>> getOneFireStationById(String id) {
+/*public List<Optional<FireStation>> getOneFireStationById(String id) {
 		return fireStationRepositoryFile.findById(id);
 		
 	}
 	
 	public List< Optional<FireStation>> getFireStationsByAddress( String address ) {
 		return fireStationRepositoryFile.findByAddress(address);
-	}
+	}*/
 /*	
 	public FireStation saveFireStation(@Valid FireStation fireStation) {
 		return fireStationRepository.save(fireStation);
@@ -68,4 +68,4 @@ public List<Optional<FireStation>> getOneFireStationById(String id) {
 
 
 	
-}
+//}

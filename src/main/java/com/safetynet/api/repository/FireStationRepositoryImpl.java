@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.safetynet.api.model.FireStation;
-import com.safetynet.api.service.ReadFireStationDataFromFileImpl;
 
-@Component
+
+/*@Component
 public class FireStationRepositoryImpl implements IFireStationRepository{
 	private Optional<FireStation> fireStationFoundById; 
 	private Optional<FireStation>fireStationFoundByAddress;
@@ -74,4 +74,4 @@ public class FireStationRepositoryImpl implements IFireStationRepository{
 		 System.out.println("listOfFireStationsFoundByAddress:" +listOfFireStationsFoundByAddress);
 		 return listOfFireStationsFoundByAddress;		
 	}		
-}
+}*/

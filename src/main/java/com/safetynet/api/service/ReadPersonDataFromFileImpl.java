@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 import com.safetynet.api.model.Person;
 
-@Component
+/*@Component
 public class ReadPersonDataFromFileImpl implements IDatasFileReader<Person> {
 	private JsonArray datasJsonPersons;
 	private List<Person> listOfPersons;
@@ -48,4 +48,4 @@ public class ReadPersonDataFromFileImpl implements IDatasFileReader<Person> {
 public List<Person>	getListOfPersons(){
 		return listOfPersons;
 	}
-}
+}*/
