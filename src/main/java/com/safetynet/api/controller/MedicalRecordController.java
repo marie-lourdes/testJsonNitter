@@ -1,7 +1,6 @@
 package com.safetynet.api.controller;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -9,10 +8,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,8 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.safetynet.api.model.MedicalRecord;
 import com.safetynet.api.service.dataservice.MedicalRecordService;
-
-import jakarta.validation.Valid;
 
 @RestController
 public class MedicalRecordController {
@@ -64,7 +58,12 @@ public class MedicalRecordController {
 		public  List<Optional<MedicalRecord>> getOneMedicalRecordByFullName(@RequestParam String firstName, @RequestParam String lastName){
 			return medicalRecordService.getOneMedicalRecordByFullName(firstName,lastName);
 		}*/
-		
+
+@PutMapping("/medicalRecord")
+public ResponseEntity<MedicalRecord> updateOneMedicalRecordById(@RequestBody MedicalRecord medicalRecord, @RequestParam String firstName, @RequestParam String lastName) {
+MedicalRecord medicalRecordFoundById=	medicalRecordService.updateMedicalRecord(firstName, lastName, medicalRecord) ;
+	return ResponseEntity.status(HttpStatus.CREATED).body(medicalRecordFoundById);
+}
 	// the id, first and last name cannot be modified
 /*	@PutMapping("/medicalRecord/{id}")
 	public ResponseEntity<Optional<MedicalRecord>> updateOneMedicalRecordById(@RequestBody MedicalRecord medicalRecord,

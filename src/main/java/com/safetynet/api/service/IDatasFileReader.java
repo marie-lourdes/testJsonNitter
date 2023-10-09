@@ -3,6 +3,7 @@ package com.safetynet.api.service;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.List;
 
 import javax.json.Json;
