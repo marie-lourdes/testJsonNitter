@@ -25,7 +25,11 @@ public class MedicalRecordService {
 
     public MedicalRecord addMedicalRecord(MedicalRecord medicalRecord){
       //  log.debug("Adding medical record: {}", medicalRecord.getFirstName() + " " + medicalRecord.getLastName());
-        medicalRecords.add(medicalRecord);
+    	medicalRecord.setId(
+    			medicalRecord.getFirstName() + " " +medicalRecord.getLastName() );
+      
+       	medicalRecords.add(medicalRecord);
+
      //   log.info("Medical record added successfully: {}", medicalRecord.getFirstName() + " " + medicalRecord.getLastName());
         return medicalRecord;
     }

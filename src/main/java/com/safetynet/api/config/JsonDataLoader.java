@@ -55,6 +55,7 @@ public class JsonDataLoader implements CommandLineRunner {
     	   List<MedicalRecord> medicalRecords=	readMedicalRecordsFromfile.findAll();
     	   for(MedicalRecord medicalRecord:medicalRecords) {
     		   medicalRecordService.addMedicalRecord(medicalRecord);
+    		
     	   }
 
         } catch (IOException e) {

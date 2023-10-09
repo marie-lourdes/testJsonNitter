@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,19 +20,23 @@ import org.springframework.web.bind.annotation.RestController;
 import com.safetynet.api.model.MedicalRecord;
 import com.safetynet.api.service.dataservice.MedicalRecordService;
 
+import jakarta.validation.Valid;
+
 @RestController
 public class MedicalRecordController {
 	@Autowired
 	private MedicalRecordService medicalRecordService;
 
-/*	@PostMapping("/medicalRecord/")
+	@PostMapping("/medicalRecord/")
 	public ResponseEntity<MedicalRecord> createMedicalRecord(@Valid @RequestBody MedicalRecord medicalRecord)
-			throws Exception {	
-		medicalRecordService.saveMedicalRecord(medicalRecord);
+			throws Exception {
+		MedicalRecord medicalRecordCreated = medicalRecordService.addMedicalRecord(medicalRecord);
+		
+		//medicalRecords.add(medicalRecord);
 		System.out.println(medicalRecord);
-		return ResponseEntity.status(HttpStatus.CREATED).body(medicalRecord);
+		return ResponseEntity.status(HttpStatus.CREATED).body(medicalRecordCreated);
 		// return medicalRecordService.saveMedicalRecord(medicalRecord);
-	}*/
+	}
 
 	//-----------------requete a partir du fichier json-------------
 @GetMapping("/medicalRecord/")
